@@ -4,16 +4,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ParticlesBackground } from '@/components/particles-background';
-import { WorkspaceScene } from '@/components/3d/workspace-scene';
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <ParticlesBackground />
-      
-      <div className="absolute inset-0 z-10">
-        <WorkspaceScene />
-      </div>
 
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
         <motion.h1
