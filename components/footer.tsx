@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Disc as Discord, Send, Sparkles, Code2, Users, Video } from "lucide-react";
+import { Github, Twitter, Linkedin, Disc as Discord, Send, Flame, Code2, Users, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
@@ -21,18 +21,18 @@ export function Footer() {
   return (
     <footer className="border-t border-border/40 bg-background/95 backdrop-blur-lg relative overflow-hidden transition-colors duration-300">
       {/* Glow decorative background blur */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center space-x-2">
-              <span className="p-2 rounded-xl bg-gradient-to-tr from-primary to-purple-600 text-primary-foreground shadow-md">
-                <Sparkles className="w-5 h-5" />
+              <span className="p-2 rounded-xl bg-gradient-to-tr from-orange-500 via-amber-500 to-rose-500 text-white shadow-md shadow-orange-500/20">
+                <Flame className="w-5 h-5 fill-current" />
               </span>
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary via-purple-600 to-indigo-500 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 bg-clip-text text-transparent">
                 Unity Hub
               </span>
             </Link>
@@ -52,15 +52,15 @@ export function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="flex-1 px-3.5 py-2 text-sm rounded-lg bg-secondary/80 border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground transition"
+                  className="flex-1 px-3.5 py-2 text-sm rounded-lg bg-secondary/80 border border-border focus:outline-none focus:ring-2 focus:ring-orange-500/50 text-foreground transition"
                 />
-                <Button type="submit" size="sm" className="gap-1 bg-gradient-to-r from-primary to-purple-600 hover:opacity-90">
+                <Button type="submit" size="sm" className="gap-1 bg-gradient-to-r from-orange-500 to-amber-500 hover:opacity-90 text-white">
                   <span>Join</span>
                   <Send className="w-3.5 h-3.5" />
                 </Button>
               </form>
               {subscribed && (
-                <p className="text-xs text-emerald-500 mt-2 flex items-center gap-1">
+                <p className="text-xs text-amber-500 mt-2 flex items-center gap-1">
                   ✓ Successfully subscribed to Unity Hub updates!
                 </p>
               )}
@@ -75,19 +75,19 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/hackathons" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <Code2 className="w-4 h-4 text-primary" />
+                  <Code2 className="w-4 h-4 text-orange-500" />
                   Hackathons
                 </Link>
               </li>
               <li>
                 <Link href="/meetings" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <Video className="w-4 h-4 text-purple-500" />
+                  <Video className="w-4 h-4 text-amber-500" />
                   Video Rooms
                 </Link>
               </li>
               <li>
                 <Link href="/projects" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
-                  <Users className="w-4 h-4 text-indigo-500" />
+                  <Users className="w-4 h-4 text-rose-500" />
                   Projects & Teams
                 </Link>
               </li>

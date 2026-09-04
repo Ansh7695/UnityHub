@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { projectsData, Project } from "@/data/projectsData";
-import { Search, Code2, Users, Star, ExternalLink, Github, Filter, Plus, CheckCircle, Sparkles, X, UserPlus } from "lucide-react";
+import { Search, Code2, Users, Star, ExternalLink, Github, Filter, Plus, CheckCircle, Sparkles, X, UserPlus, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function ProjectsPage() {
@@ -93,9 +93,9 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
       {/* Hero Banner */}
-      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary/10 via-purple-600/10 to-indigo-600/10 border border-border/60 p-8 sm:p-12 shadow-xl">
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-rose-500/15 border border-orange-500/20 p-8 sm:p-12 shadow-xl">
         <div className="relative z-10 max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-400">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-xs font-semibold text-orange-500">
             <Users className="w-3.5 h-3.5" />
             <span>Developer Matching & Project Showcase</span>
           </div>
@@ -109,7 +109,7 @@ export default function ProjectsPage() {
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Button
               onClick={() => setShowPublishModal(true)}
-              className="gap-2 bg-gradient-to-r from-primary to-purple-600 hover:opacity-90 shadow-lg text-primary-foreground"
+              className="gap-2 bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 hover:opacity-90 shadow-lg shadow-orange-500/20 text-white border-0"
             >
               <Plus className="w-4 h-4" />
               <span>Publish Your Project</span>
@@ -128,7 +128,7 @@ export default function ProjectsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by project name, stack (e.g. React, Rust, AI)..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-secondary/70 border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground transition text-sm"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-secondary/70 border border-border focus:outline-none focus:ring-2 focus:ring-orange-500/40 text-foreground transition text-sm"
             />
           </div>
 
@@ -139,7 +139,7 @@ export default function ProjectsPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition ${
                   selectedCategory === cat
-                    ? "bg-primary text-primary-foreground shadow-sm"
+                    ? "bg-orange-500 text-white shadow-sm"
                     : "bg-secondary/70 text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -155,21 +155,21 @@ export default function ProjectsPage() {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="bg-card border border-border/70 rounded-3xl p-6 hover:border-primary/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group"
+            className="bg-card border border-border/70 rounded-3xl p-6 hover:border-orange-500/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-orange-500/10 text-orange-500 border border-orange-500/20">
                   {project.category}
                 </span>
 
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                     {project.stars}
                   </span>
                   <span className={`px-2 py-0.5 rounded-md font-semibold text-[10px] ${
-                    project.status === "Recruiting" ? "bg-emerald-500/10 text-emerald-500" : "bg-blue-500/10 text-blue-400"
+                    project.status === "Recruiting" ? "bg-emerald-500/10 text-emerald-500" : "bg-orange-500/10 text-orange-400"
                   }`}>
                     {project.status}
                   </span>
@@ -177,7 +177,7 @@ export default function ProjectsPage() {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-orange-500 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
@@ -197,11 +197,11 @@ export default function ProjectsPage() {
               {/* Looking for Roles */}
               <div className="p-3 rounded-2xl bg-secondary/40 border border-border/40 space-y-1">
                 <span className="text-[11px] font-semibold text-muted-foreground uppercase flex items-center gap-1">
-                  <UserPlus className="w-3 h-3 text-primary" /> Looking for Teammates:
+                  <UserPlus className="w-3 h-3 text-orange-500" /> Looking for Teammates:
                 </span>
                 <div className="flex flex-wrap gap-1.5 mt-1">
                   {project.lookingFor.map((role) => (
-                    <span key={role} className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs font-medium">
+                    <span key={role} className="px-2 py-0.5 rounded bg-orange-500/10 text-orange-500 text-xs font-medium">
                       {role}
                     </span>
                   ))}
@@ -232,7 +232,7 @@ export default function ProjectsPage() {
                 <Button
                   onClick={() => setSelectedProject(project)}
                   size="sm"
-                  className="gap-1 text-xs font-semibold bg-gradient-to-r from-primary to-purple-600"
+                  className="gap-1 text-xs font-semibold bg-gradient-to-r from-orange-500 to-amber-500 text-white border-0"
                 >
                   <span>Apply / Join</span>
                 </Button>
@@ -254,7 +254,7 @@ export default function ProjectsPage() {
             </button>
 
             <div>
-              <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
+              <span className="px-2.5 py-0.5 rounded text-xs font-bold bg-orange-500/10 text-orange-500">
                 Team Application
               </span>
               <h2 className="text-2xl font-bold text-foreground mt-1">Join {selectedProject.title}</h2>
@@ -300,7 +300,7 @@ export default function ProjectsPage() {
                   <Button type="button" variant="outline" onClick={() => setSelectedProject(null)}>
                     Cancel
                   </Button>
-                  <Button type="submit" className="bg-gradient-to-r from-primary to-purple-600">
+                  <Button type="submit" className="bg-gradient-to-r from-orange-500 to-amber-500 text-white">
                     Send Application
                   </Button>
                 </div>
@@ -398,7 +398,7 @@ export default function ProjectsPage() {
                   <Button type="button" variant="outline" onClick={() => setShowPublishModal(false)}>
                     Cancel
                   </Button>
-                  <Button type="submit" className="bg-gradient-to-r from-primary to-purple-600">
+                  <Button type="submit" className="bg-gradient-to-r from-orange-500 to-amber-500 text-white">
                     Publish Showcase
                   </Button>
                 </div>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Moon, Sun, Menu, X, Sparkles, Trophy, Video, Users, LogIn, UserPlus } from 'lucide-react';
+import { Moon, Sun, Menu, X, Flame, Trophy, Video, Users, LogIn, UserPlus } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 
@@ -45,10 +45,10 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="p-1.5 rounded-lg bg-gradient-to-tr from-primary to-purple-600 text-primary-foreground group-hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5" />
+            <span className="p-1.5 rounded-lg bg-gradient-to-tr from-orange-500 via-amber-500 to-rose-500 text-white group-hover:scale-105 transition-transform shadow-md shadow-orange-500/20">
+              <Flame className="w-5 h-5 fill-current" />
             </span>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary via-purple-600 to-indigo-500 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 bg-clip-text text-transparent">
               Unity Hub
             </span>
           </Link>
@@ -64,11 +64,11 @@ export function Navbar() {
                   href={link.href}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-primary/10 text-primary font-semibold'
+                      ? 'bg-orange-500/10 text-orange-500 font-semibold'
                       : 'text-foreground/80 hover:text-foreground hover:bg-secondary/60'
                   }`}
                 >
-                  {Icon && <Icon className={`w-4 h-4 ${isActive ? 'text-primary' : 'text-muted-foreground'}`} />}
+                  {Icon && <Icon className={`w-4 h-4 ${isActive ? 'text-orange-500' : 'text-muted-foreground'}`} />}
                   <span>{link.label}</span>
                 </Link>
               );
@@ -84,8 +84,8 @@ export function Navbar() {
               className="rounded-full"
               aria-label="Toggle theme"
             >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-amber-500" />
+              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-orange-400" />
             </Button>
 
             <Link href="/login">
@@ -96,7 +96,7 @@ export function Navbar() {
             </Link>
 
             <Link href="/signup">
-              <Button size="sm" className="gap-1.5 bg-gradient-to-r from-primary to-purple-600 hover:opacity-90 shadow-md">
+              <Button size="sm" className="gap-1.5 bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 hover:opacity-90 shadow-md shadow-orange-500/20 text-white border-0">
                 <UserPlus className="w-4 h-4" />
                 <span>Sign Up</span>
               </Button>
@@ -111,8 +111,8 @@ export function Navbar() {
               size="icon"
               className="rounded-full"
             >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-amber-500" />
+              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-orange-400" />
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -139,11 +139,11 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`px-4 py-2.5 rounded-lg text-base font-medium flex items-center gap-3 transition-colors ${
                       isActive
-                        ? 'bg-primary/10 text-primary font-semibold'
+                        ? 'bg-orange-500/10 text-orange-500 font-semibold'
                         : 'text-foreground/80 hover:text-foreground hover:bg-secondary/50'
                     }`}
                   >
-                    {Icon && <Icon className="w-5 h-5 text-primary" />}
+                    {Icon && <Icon className="w-5 h-5 text-orange-500" />}
                     <span>{link.label}</span>
                   </Link>
                 );
@@ -157,7 +157,7 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <Link href="/signup" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full justify-center gap-2 bg-gradient-to-r from-primary to-purple-600">
+                  <Button className="w-full justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white">
                     <UserPlus className="w-4 h-4" />
                     <span>Sign Up</span>
                   </Button>

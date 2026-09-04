@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import hackathonsData from "@/data/hackathonsData";
-import { Search, Filter, Calendar, MapPin, Users, Globe, Sparkles, Plus, ExternalLink, Bookmark, CheckCircle, Trophy, Rocket, ChevronRight, X } from "lucide-react";
+import { Search, Filter, Calendar, MapPin, Users, Globe, Plus, ExternalLink, Bookmark, CheckCircle, Trophy, Rocket, ChevronRight, X, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function HackathonsPage() {
@@ -15,10 +15,8 @@ export default function HackathonsPage() {
   const [hostFormData, setHostFormData] = useState({ name: "", topic: "AI", mode: "Online", date: "", prize: "" });
   const [submittedHost, setSubmittedHost] = useState(false);
 
-  // Available topics for filtering
   const topics = ["All", "AI", "Blockchain", "Cloud Computing", "Hardware", "Data Science", "IoT", "Machine Learning", "Web Development"];
 
-  // Filter hackathons
   const filteredHackathons = useMemo(() => {
     return hackathonsData.filter((h) => {
       const matchesSearch =
@@ -50,7 +48,6 @@ export default function HackathonsPage() {
     }, 2500);
   };
 
-  // Image fallback map for high-quality unsplash images
   const getFallbackImage = (topic: string, id: number) => {
     const images: Record<string, string> = {
       AI: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
@@ -68,11 +65,11 @@ export default function HackathonsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Hero Banner */}
-      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary/10 via-purple-600/10 to-indigo-600/10 border border-border/60 p-8 sm:p-12 mb-10 shadow-2xl backdrop-blur-sm">
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-rose-500/15 border border-orange-500/20 p-8 sm:p-12 mb-10 shadow-2xl backdrop-blur-sm">
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-4">
-            <Trophy className="w-4 h-4 text-amber-500" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-xs font-semibold text-orange-500 mb-4">
+            <Flame className="w-4 h-4 fill-current text-amber-500" />
             <span>Global Hackathon Arena</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent">
@@ -85,19 +82,19 @@ export default function HackathonsPage() {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Button
               onClick={() => setShowHostModal(true)}
-              className="gap-2 bg-gradient-to-r from-primary to-purple-600 hover:opacity-90 shadow-lg text-primary-foreground"
+              className="gap-2 bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 hover:opacity-90 shadow-lg shadow-orange-500/20 text-white border-0"
             >
               <Plus className="w-4 h-4" />
               <span>Host a Hackathon</span>
             </Button>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
-                <Rocket className="w-4 h-4 text-purple-500" />
-                <strong>10+</strong> Active Events
+                <Rocket className="w-4 h-4 text-orange-500" />
+                <strong className="text-foreground">10+</strong> Active Events
               </span>
               <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-indigo-500" />
-                <strong>2,400+</strong> Builders
+                <Users className="w-4 h-4 text-amber-500" />
+                <strong className="text-foreground">2,400+</strong> Builders
               </span>
             </div>
           </div>
@@ -106,7 +103,6 @@ export default function HackathonsPage() {
 
       {/* Filter Controls */}
       <div className="space-y-4 mb-8">
-        {/* Search Bar & Mode Toggle */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="relative flex-1 w-full">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -115,7 +111,7 @@ export default function HackathonsPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by title, technology, or city..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-secondary/60 border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 text-foreground transition text-sm"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-secondary/60 border border-border focus:outline-none focus:ring-2 focus:ring-orange-500/40 text-foreground transition text-sm"
             />
             {searchQuery && (
               <button
@@ -134,7 +130,7 @@ export default function HackathonsPage() {
                 onClick={() => setSelectedMode(mode)}
                 className={`px-4 py-1.5 rounded-lg text-xs font-medium transition ${
                   selectedMode === mode
-                    ? "bg-background text-foreground shadow-sm"
+                    ? "bg-background text-orange-500 shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -155,7 +151,7 @@ export default function HackathonsPage() {
               onClick={() => setSelectedTopic(t)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
                 selectedTopic === t
-                  ? "bg-primary text-primary-foreground shadow-md"
+                  ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                   : "bg-secondary/80 text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
@@ -195,7 +191,7 @@ export default function HackathonsPage() {
               <div
                 key={h.id}
                 onClick={() => setActiveHackathon(h)}
-                className="group relative bg-card border border-border/70 rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+                className="group relative bg-card border border-border/70 rounded-2xl overflow-hidden hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 flex flex-col cursor-pointer"
               >
                 {/* Image & Badges */}
                 <div className="relative h-48 w-full overflow-hidden bg-muted">
@@ -216,12 +212,12 @@ export default function HackathonsPage() {
                     onClick={(e) => toggleBookmark(h.id, e)}
                     className="absolute top-3 right-3 p-2 rounded-full bg-background/80 backdrop-blur-md border border-border/60 text-foreground hover:bg-background transition shadow-sm"
                   >
-                    <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-amber-400 text-amber-400" : "text-muted-foreground"}`} />
+                    <Bookmark className={`w-4 h-4 ${isBookmarked ? "fill-amber-500 text-amber-500" : "text-muted-foreground"}`} />
                   </button>
 
                   {/* Title overlay */}
                   <div className="absolute bottom-3 left-4 right-4">
-                    <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-purple-500/90 text-white mb-1.5 inline-block">
+                    <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-500 text-white mb-1.5 inline-block">
                       {h.topic}
                     </span>
                     <h3 className="text-xl font-bold text-white leading-tight line-clamp-1">
@@ -238,27 +234,27 @@ export default function HackathonsPage() {
 
                   <div className="space-y-2 text-xs text-foreground/80">
                     <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-3.5 h-3.5 text-primary" />
+                      <Calendar className="w-3.5 h-3.5 text-orange-500" />
                       <span>{h.date}</span>
                     </div>
 
                     {h.city && (
                       <div className="flex items-center gap-2 text-muted-foreground">
-                        <MapPin className="w-3.5 h-3.5 text-purple-500" />
+                        <MapPin className="w-3.5 h-3.5 text-amber-500" />
                         <span>{h.city}</span>
                       </div>
                     )}
 
                     {h.teamSize && (
                       <div className="flex items-center gap-2 text-muted-foreground">
-                        <Users className="w-3.5 h-3.5 text-indigo-500" />
+                        <Users className="w-3.5 h-3.5 text-rose-500" />
                         <span>Team Size: {h.teamSize} builders</span>
                       </div>
                     )}
                   </div>
 
                   <div className="pt-3 border-t border-border/60 flex items-center justify-between">
-                    <span className="text-xs font-semibold text-primary flex items-center gap-1">
+                    <span className="text-xs font-semibold text-orange-500 flex items-center gap-1">
                       View Details
                       <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -292,11 +288,11 @@ export default function HackathonsPage() {
             </button>
 
             <div className="flex items-start gap-4">
-              <div className="p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary">
+              <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-500">
                 <Trophy className="w-8 h-8" />
               </div>
               <div>
-                <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-orange-500/20 text-orange-400 border border-orange-500/30">
                   {activeHackathon.topic}
                 </span>
                 <h2 className="text-2xl font-bold text-foreground mt-1">{activeHackathon.name}</h2>
@@ -335,7 +331,7 @@ export default function HackathonsPage() {
                 href={activeHackathon.registrationLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-purple-600 text-primary-foreground font-semibold text-sm shadow-md hover:opacity-90 transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold text-sm shadow-md hover:opacity-90 transition"
               >
                 <span>Proceed to Official Registration</span>
                 <ExternalLink className="w-4 h-4" />
@@ -377,7 +373,7 @@ export default function HackathonsPage() {
                     value={hostFormData.name}
                     onChange={(e) => setHostFormData({ ...hostFormData, name: e.target.value })}
                     placeholder="e.g. AI Innovators 2026"
-                    className="w-full px-3.5 py-2 rounded-xl bg-secondary border border-border text-foreground focus:ring-2 focus:ring-primary/40 focus:outline-none"
+                    className="w-full px-3.5 py-2 rounded-xl bg-secondary border border-border text-foreground focus:ring-2 focus:ring-orange-500/40 focus:outline-none"
                   />
                 </div>
 
@@ -424,7 +420,7 @@ export default function HackathonsPage() {
                   <Button type="button" variant="outline" onClick={() => setShowHostModal(false)}>
                     Cancel
                   </Button>
-                  <Button type="submit" className="bg-gradient-to-r from-primary to-purple-600">
+                  <Button type="submit" className="bg-gradient-to-r from-orange-500 to-amber-500 text-white">
                     Submit Event
                   </Button>
                 </div>

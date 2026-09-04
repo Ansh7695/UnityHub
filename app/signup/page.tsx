@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sparkles, UserPlus, CheckCircle, ArrowRight, Github, Code, Shield } from "lucide-react";
+import { Sparkles, UserPlus, CheckCircle, ArrowRight, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function SignupPage() {
@@ -50,14 +50,14 @@ export default function SignupPage() {
     <main className="min-h-[85vh] bg-background text-foreground flex items-center justify-center p-4 py-12">
       <div className="w-full max-w-xl bg-card border border-border/80 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
         {/* Glow decorative background */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="text-center space-y-2 mb-8">
           <Link href="/" className="inline-flex items-center gap-2 mb-2">
-            <span className="p-2 rounded-xl bg-gradient-to-tr from-primary to-purple-600 text-primary-foreground shadow-md">
-              <Sparkles className="w-5 h-5" />
+            <span className="p-2 rounded-xl bg-gradient-to-tr from-orange-500 via-amber-500 to-rose-500 text-white shadow-md shadow-orange-500/20">
+              <Flame className="w-5 h-5 fill-current" />
             </span>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary via-purple-600 to-indigo-500 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 bg-clip-text text-transparent">
               Unity Hub
             </span>
           </Link>
@@ -76,7 +76,7 @@ export default function SignupPage() {
             </p>
             <div className="pt-4">
               <Link href="/hackathons">
-                <Button className="px-8 py-3 bg-gradient-to-r from-primary to-purple-600 shadow-lg">
+                <Button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/20">
                   Explore Hackathons
                 </Button>
               </Link>
@@ -89,14 +89,14 @@ export default function SignupPage() {
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className={`font-semibold transition ${step === 1 ? "text-primary border-b-2 border-primary pb-1" : "text-muted-foreground"}`}
+                className={`font-semibold transition ${step === 1 ? "text-orange-500 border-b-2 border-orange-500 pb-1" : "text-muted-foreground"}`}
               >
                 1. Account Details
               </button>
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className={`font-semibold transition ${step === 2 ? "text-primary border-b-2 border-primary pb-1" : "text-muted-foreground"}`}
+                className={`font-semibold transition ${step === 2 ? "text-orange-500 border-b-2 border-orange-500 pb-1" : "text-muted-foreground"}`}
               >
                 2. Tech Role & Skills
               </button>
@@ -112,7 +112,7 @@ export default function SignupPage() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Alex Morgan"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-secondary/80 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-secondary/80 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   />
                 </div>
 
@@ -124,7 +124,7 @@ export default function SignupPage() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="alex@example.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-secondary/80 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-secondary/80 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   />
                 </div>
 
@@ -136,7 +136,7 @@ export default function SignupPage() {
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     placeholder="••••••••••••"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-secondary/80 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-secondary/80 border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/40"
                   />
                 </div>
 
@@ -144,7 +144,7 @@ export default function SignupPage() {
                   <Button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="w-full py-5 text-sm gap-2 bg-gradient-to-r from-primary to-purple-600"
+                    className="w-full py-5 text-sm gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white"
                   >
                     <span>Next: Select Skills & Role</span>
                     <ArrowRight className="w-4 h-4" />
@@ -178,7 +178,7 @@ export default function SignupPage() {
                           onClick={() => toggleSkill(skill)}
                           className={`px-3 py-1.5 rounded-xl font-medium transition ${
                             isSelected
-                              ? "bg-primary text-primary-foreground shadow-md"
+                              ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                               : "bg-secondary/80 text-muted-foreground hover:text-foreground"
                           }`}
                         >
@@ -193,7 +193,7 @@ export default function SignupPage() {
                   <Button type="button" variant="outline" onClick={() => setStep(1)} className="w-1/3">
                     Back
                   </Button>
-                  <Button type="submit" className="w-2/3 py-5 text-sm bg-gradient-to-r from-primary to-purple-600 shadow-lg">
+                  <Button type="submit" className="w-2/3 py-5 text-sm bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/20">
                     Complete Registration
                   </Button>
                 </div>
@@ -204,7 +204,7 @@ export default function SignupPage() {
 
         <div className="mt-8 pt-6 border-t border-border/60 text-center text-xs text-muted-foreground">
           Already have an account?{" "}
-          <Link href="/login" className="text-primary font-semibold hover:underline">
+          <Link href="/login" className="text-orange-500 font-semibold hover:underline">
             Sign In here
           </Link>
         </div>

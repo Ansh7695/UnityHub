@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sparkles } from 'lucide-react';
+import { Flame } from 'lucide-react';
 
 export function CTASection() {
   return (
@@ -19,19 +20,21 @@ export function CTASection() {
             Ready to Transform Your Team&apos;s Workflow?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Join thousands of teams already using TeamSync to collaborate, innovate, and succeed together.
+            Join thousands of developers already using Unity Hub to collaborate, compete in hackathons, and innovate together.
           </p>
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/80 hover:to-purple-600/80 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <Sparkles className="mr-2 h-5 w-5" />
-            Get Started for Free
-          </Button>
+          <Link href="/signup">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 hover:opacity-90 text-white shadow-lg shadow-orange-500/20 hover:shadow-xl transition-all duration-300 border-0"
+            >
+              <Flame className="mr-2 h-5 w-5 fill-current" />
+              Get Started for Free
+            </Button>
+          </Link>
         </motion.div>
       </div>
       
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-orange-500/5 pointer-events-none" />
     </section>
   );
 }

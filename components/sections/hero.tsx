@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ParticlesBackground } from '@/components/particles-background';
 import { WorkspaceScene } from '@/components/3d/workspace-scene';
@@ -14,14 +15,14 @@ export function HeroSection() {
         <WorkspaceScene />
       </div>
 
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl font-bold mb-6"
         >
-          <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 bg-clip-text text-transparent">
             Build. Collaborate. Innovate
           </span>
           <br />
@@ -42,13 +43,25 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-wrap items-center justify-center gap-4"
         >
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/80 hover:to-purple-600/80 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Get Started for Free
-          </Button>
+          <Link href="/signup">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 hover:opacity-90 text-white shadow-lg shadow-orange-500/20 hover:shadow-xl transition-all duration-300 border-0"
+            >
+              Get Started for Free
+            </Button>
+          </Link>
+          <Link href="/hackathons">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-orange-500/30 hover:bg-orange-500/10 text-foreground"
+            >
+              Explore Hackathons
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
